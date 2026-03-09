@@ -1,0 +1,5 @@
+CONVERT_TO=liatris
+SEND_STRING_ENABLE = yes
+LAYER_LOCK_ENABLE = yes
+RGB_MATRIX_CUSTOM_USER = yes
+SRC += oled.c

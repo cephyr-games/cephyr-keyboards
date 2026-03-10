@@ -114,7 +114,7 @@ void render_prayer(void) {
 }
 
 void render_layer_state_user(void) {
-    switch (get_highest_layer(layer_state | default_layer_state) % 4) {
+    switch (get_highest_layer(layer_state)) {
         case 1:
             oled_write_raw_P(lower_layer, sizeof(lower_layer));
             break;

@@ -1,0 +1,26 @@
+layout: {qmk_keyboard: splitkb/aurora/sofle_v2/rev1, layout_name: LAYOUT}
+layers:
+  DEF:
+  - [CAPS, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', BSPC]
+  - [ESC, Q, W, F, P, G, J, L, U, Y, '"', LALT]
+  - [LSFT, A, R, S, T, D, H, N, E, I, O, RSFT]
+  - [LCTL, Z, X, C, V, B, MUTE, MPLY, K, M, ',', ., '''', RCTL]
+  - [KB, DEL, SPC, {t: TAB, h: MISC}, LGUI, RGUI, {t: ENT, h: MISC}, {t: _, h: SYM}, BSPC, RALT]
+  SYM:
+  - [F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12]
+  - [{t: ESC, type: trans}, '@', '!', '&', '|', '~', '1', '?', '[', ']', '0', {t: LALT, type: trans}]
+  - [{t: LSFT, type: trans}, ':', '+', '-', '*', '/', ';', '{', '(', ')', '}', {t: RSFT, type: trans}]
+  - [{t: LCTL, type: trans}, '%', '<', '>', '=', '\', {t: MUTE, type: trans}, {t: MPLY, type: trans}, '´', '#', '^', '$', '`', {t: RCTL, type: trans}]
+  - [{t: KB, type: trans}, {t: DEL, type: trans}, {t: SPC, type: trans}, {t: TAB, type: trans}, {t: LGUI, type: trans}, {t: RGUI, type: trans}, {t: ENT, type: trans}, {type: held}, {t: BSPC, type: trans}, {t: RALT, type: trans}]
+  MISC:
+  - [F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24]
+  - [{t: ESC, type: trans}, '', PGDN, UP, PGUP, HOME, '', '', '', '', {t: LAYER LOCK, type: held}, {t: LALT, type: trans}]
+  - [{t: LSFT, type: trans}, '', LEFT, DOWN, RGHT, FIND, '', 'ß', 'Ä', 'Ü', Ö, {t: RSFT, type: trans}]
+  - [{t: LCTL, type: trans}, '', '', '', '', '', {t: MUTE, type: trans}, {t: MPLY, type: trans}, 'DE ´', '', 'DE ^', '', 'DE `', {t: RCTL, type: trans}]
+  - [{t: KB, type: trans}, {t: DEL, type: trans}, {t: SPC, type: trans}, {t: TAB, type: held}, {t: LGUI, type: trans}, {t: RGUI, type: trans}, {t: ENT, type: held}, {t: _, type: trans}, {t: BSPC, type: trans}, {t: RALT, type: trans}]
+  KB:
+  - [BOOT, '', '', '', '', '', '', '', '', '', '', '']
+  - ['', '', '', '', '', '', BAD APLE, RM NEXT, RM HUEU, RM SATU, RM VALU, RM SPDU]
+  - ['', '', '', '', '', '', RM TOGG, RM PREV, RM HUED, RM SATD, RM VALD, RM SPDD]
+  - ['', '', '', '', '', '', {t: MUTE, type: trans}, {t: MPLY, type: trans}, '', '', '', '', '', '']
+  - [{type: held}, {t: DEL, type: trans}, {t: SPC, type: trans}, {t: TAB, type: trans}, {t: LGUI, type: trans}, {t: RGUI, type: trans}, {t: ENT, type: trans}, {t: _, type: trans}, {t: BSPC, type: trans}, {t: RALT, type: trans}]

@@ -1,59 +1,44 @@
-# QMK Userspace
+# Ergonomic and mnemonic keymap for writing code and stuff.
+The keymap and some fancy effects for my keyboard (Aurora Sofle v2 from Splikb, not sponsored).
 
-This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the [main QMK repository](https://github.com/qmk/qmk_firmware). You must still fork the main QMK repository if writing firmware for a *new* keyboard.
+**Warning!** This is a personal project, I might make undocumented breaking changes at any time and offer no support.
 
-## Howto configure your build targets
+Feel free to *borrow* whatever you want from this though.
 
-1. Run the normal `qmk setup` procedure if you haven't already done so -- see [QMK Docs](https://docs.qmk.fm/#/newbs) for details.
-1. Fork this repository
-1. Clone your fork to your local machine
-1. Enable userspace in QMK config using `qmk config user.overlay_dir="$(realpath qmk_userspace)"`
-1. Add a new keymap for your board using `qmk new-keymap`
-    * This will create a new keymap in the `keyboards` directory, in the same location that would normally be used in the main QMK repository. For example, if you wanted to add a keymap for the Planck, it will be created in `keyboards/planck/keymaps/<your keymap name>`
-    * You can also create a new keymap using `qmk new-keymap -kb <your_keyboard> -km <your_keymap>`
-    * Alternatively, add your keymap manually by placing it in the location specified above.
-    * `layouts/<layout name>/<your keymap name>/keymap.*` is also supported if you prefer the layout system
-1. Add your keymap(s) to the build by running `qmk userspace-add -kb <your_keyboard> -km <your_keymap>`
-    * This will automatically update your `qmk.json` file
-    * Corresponding `qmk userspace-remove -kb <your_keyboard> -km <your_keymap>` will delete it
-    * Listing the build targets can be done with `qmk userspace-list`
-1. Commit your changes
+![Photo](aurora_sofle.jpeg)
 
-## Howto build with GitHub
+## Install
+This project uses QMK's userspace feature to define the keymap and effects. Check out the instructions found in this [repo](https://github.com/qmk/qmk_userspace).
 
-1. In the GitHub Actions tab, enable workflows
-1. Push your changes above to your forked GitHub repository
-1. Look at the GitHub Actions for a new actions run
-1. Wait for the actions run to complete
-1. Inspect the Releases tab on your repository for the latest firmware build
+## Keymap
+![Keymap](assets/aurora_sofle.svg)
 
-## Howto build locally
+The sent codes assume that the keyboard layout is set to German QWERTZ layout and will behave incorrectly otherwise.
 
-1. Run the normal `qmk setup` procedure if you haven't already done so -- see [QMK Docs](https://docs.qmk.fm/#/newbs) for details.
-1. Fork this repository
-1. Clone your fork to your local machine
-1. `cd` into this repository's clone directory
-1. Set global userspace path: `qmk config user.overlay_dir="$(realpath .)"` -- you MUST be located in the cloned userspace location for this to work correctly
-    * This will be automatically detected if you've `cd`ed into your userspace repository, but the above makes your userspace available regardless of your shell location.
-1. Compile normally: `qmk compile -kb your_keyboard -km your_keymap` or `make your_keyboard:your_keymap`
+### Features
+- Colemak letter distribution.
+- Symbols are arranged to make common characters and groups (e.g. '->', '>=', '<=', ':='...) easiest to type.
+- Semantically similar symbols are grouped.
+- 'Mute' and 'Media Play' buttons are rotary encoders with (cw, ccw) actions bound to (Volume Up/Down) and (Page Up/Down) respectively.
+- German Dead Keys (´, ^, `) are also availible as regular keys on the symbol layer.
+- Layer with arrow keys can be locked for prolonged navigation without holding a key.
+- Numbers 1 and 0 are duplicate on the symbol layer for better access.
 
-Alternatively, if you configured your build targets above, you can use `qmk userspace-compile` to build all of your userspace targets at once.
+## OLED Displays
+![OLED](assets/keyboard_display.gif)
+- The four quarter circles display the current layer.
+- The symbols beneath them show (left to right, top to bottom)
+  - Shift
+  - Layout (does nothing at the moment)
+  - Alt
+  - Super
+  - Caps Lock
+  - Ctrl
+- The Celeste animation on the master side can be toggled to instead play the entire Bad Apple animation!
+  - There is a flag to exclude it from compilation, the frames take more space then the rest of the firmware and effects combined...
 
-## Extra info
+## RGB Matrix effect
+Custom effect composed of Starlight (value pulses with random phase offset) and vertically hue shifting at half frequency in a limited hue range, centered on blue.
 
-If you wish to point GitHub actions to a different repository, a different branch, or even a different keymap name, you can modify `.github/workflows/build_binaries.yml` to suit your needs.
-
-To override the `build` job, you can change the following parameters to use a different QMK repository or branch:
-```
-    with:
-      qmk_repo: qmk/qmk_firmware
-      qmk_ref: master
-```
-
-If you wish to manually manage `qmk_firmware` using git within the userspace repository, you can add `qmk_firmware` as a submodule in the userspace directory instead. GitHub Actions will automatically use the submodule at the pinned revision if it exists, otherwise it will use the default latest revision of `qmk_firmware` from the main repository.
-
-This can also be used to control which fork is used, though only upstream `qmk_firmware` will have support for external userspace until other manufacturers update their forks.
-
-1. (First time only) `git submodule add https://github.com/qmk/qmk_firmware.git`
-1. (To update) `git submodule update --init --recursive`
-1. Commit your changes to your userspace repository
+## Source files
+The [Pixelorama](https://pixelorama.org/) source files of the artworks on the OLED displays are included [here](assets), as well as the [script](assets/png2bytes.py) to turn the exported png into a C style array.

@@ -86,13 +86,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
         if (timer_elapsed32(last_activity) > OLED_TIMEOUT) {
-            oled_off();
+            if (is_oled_on())
+                oled_off();
             return false;
         }
+        oled_on();
         render_master(anim_state);
     }
-    else{
-        render_slave(anim_state);
+    else {
+        if (is_oled_on())
+            render_slave(anim_state);
     }
     return false;
 }

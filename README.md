@@ -13,7 +13,7 @@ This project uses QMK's userspace feature to define the keymap and effects. Chec
 ## Keymap
 ![Keymap](assets/aurora_sofle.svg)
 
-The sent codes assume that the keyboard layout is set to German QWERTZ layout and will behave incorrectly otherwise.
+The sent codes support host layouts 'German QWERTZ' and 'US QWERTY', the current mode can be toggled at any time.
 
 ### Features
 - Colemak letter distribution.
@@ -23,13 +23,15 @@ The sent codes assume that the keyboard layout is set to German QWERTZ layout an
 - German Dead Keys (´, ^, `) are also availible as regular keys on the symbol layer.
 - Layer with arrow keys can be locked for prolonged navigation without holding a key.
 - Numbers 1 and 0 are duplicate on the symbol layer for better access.
+- Host Layout can be toggled between 'German QWERTZ' and 'US QWERTY' for compatibility
+  - German special characters and features are not available in 'US QWERTY' mode
 
 ## OLED Displays
 ![OLED](assets/keyboard_display.gif)
 - The four quarter circles display the current layer.
 - The symbols beneath them show (left to right, top to bottom)
   - Shift
-  - Layout (does nothing at the moment)
+  - Layout
   - Alt
   - Super
   - Caps Lock

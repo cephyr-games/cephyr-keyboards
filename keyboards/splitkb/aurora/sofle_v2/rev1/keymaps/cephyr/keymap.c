@@ -22,6 +22,7 @@ void keyboard_pre_init_user(void) {
 }
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    // German QWERTZ
     [0] = LAYOUT(
         KC_CAPS, DE_1,    DE_2,    DE_3,    DE_4,    DE_5,                              DE_6,          DE_7,           DE_8,    DE_9,    DE_0,    KC_BSPC,
         KC_ESC,  DE_Q,    DE_W,    DE_F,    DE_P,    DE_G,                              DE_J,          DE_L,           DE_U,    DE_Y,    DE_DQUO, KC_LALT,
@@ -40,14 +41,43 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,                      KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
         _______, XXXXXXX, KC_PGDN, KC_UP,   KC_PGUP, KC_HOME,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_LLCK, _______,
         _______, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_FIND,                     KC_DEL,  DE_SS,   DE_ADIA, DE_UDIA, DE_ODIA, _______,
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, DE_ACUT, XXXXXXX, DE_GRV,  XXXXXXX, DE_GRV,  _______,
+        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, DE_ACUT, XXXXXXX, DE_CIRC, XXXXXXX, DE_GRV,  _______,
                           _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
     ),
     [3] = LAYOUT(
-        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     CU_ANIM, RM_NEXT, RM_HUEU, RM_SATU, RM_VALU, RM_SPDU,\
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     RM_TOGG, RM_PREV, RM_HUED, RM_SATD, RM_VALD, RM_SPDD,\
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
+        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, PDF(4),
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     CU_ANIM, RM_NEXT, RM_HUEU, RM_SATU, RM_VALU, RM_SPDU,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     RM_TOGG, RM_PREV, RM_HUED, RM_SATD, RM_VALD, RM_SPDD,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                          _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
+    ),
+    // US QWERTY
+    [4] = LAYOUT(
+        KC_CAPS, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                              KC_6,          KC_7,           KC_8,    KC_9,    KC_0,    KC_BSPC,
+        KC_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,                              KC_J,          KC_L,           KC_U,    KC_Y,    KC_DQUO, KC_LALT,
+        KC_LSFT, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,                              KC_H,          KC_N,           KC_E,    KC_I,    KC_O,    KC_RSFT,
+        KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,          KC_MUTE,   KC_MPLY, KC_K,          KC_M,           KC_COMM, KC_DOT,  KC_QUOT, KC_RCTL,
+                          MO(7),   KC_DEL,  KC_SPC,  LT(6, KC_TAB), KC_LGUI,   KC_RGUI, LT(6, KC_ENT), LT(5, KC_UNDS), KC_BSPC, KC_RALT
+    ),
+    [5] = LAYOUT(
+        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                       KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
+        _______, KC_AT,   KC_EXLM, KC_AMPR, KC_PIPE, KC_TILD,                     KC_1,    KC_QUES, KC_LBRC, KC_RBRC, KC_0,    _______,
+        _______, KC_COLN, KC_PLUS, KC_MINS, KC_ASTR, KC_SLSH,                     KC_SCLN, KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, _______,
+        _______, KC_PERC, KC_LABK, KC_RABK, KC_EQL,  KC_BSLS, _______,   _______, UD_ACUT, KC_HASH, UD_CIRC, KC_DLR,  KC_GRV,  _______,
+                          _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
+    ),
+    [6] = LAYOUT(
+        KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,                      KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
+        _______, XXXXXXX, KC_PGDN, KC_UP,   KC_PGUP, KC_HOME,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_LLCK, _______,
+        _______, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_FIND,                     KC_DEL,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+                          _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
+    ),
+    [7] = LAYOUT(
+        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, PDF(0),
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     CU_ANIM, RM_NEXT, RM_HUEU, RM_SATU, RM_VALU, RM_SPDU,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     RM_TOGG, RM_PREV, RM_HUED, RM_SATD, RM_VALD, RM_SPDD,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                           _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
     )
 };

@@ -1,3 +1,4 @@
+#include "action_layer.h"
 #include QMK_KEYBOARD_H
 #include "oled.h"
 
@@ -98,11 +99,11 @@ void render_mod_status_gui_alt_user(uint8_t modifiers) {
         }
     } else if (get_highest_layer(layer_state | default_layer_state) > 3) {
         for (int i = 0; i < MOD_BUFFER_SIZE; i++) {
-            mod_buffer[i] |= lan_ge[i];
+            mod_buffer[i] |= lan_us[i];
         }
     } else {
         for (int i = 0; i < MOD_BUFFER_SIZE; i++) {
-            mod_buffer[i] |= lan_us[i];
+            mod_buffer[i] |= lan_ge[i];
         }
     }
     // Write
@@ -114,7 +115,7 @@ void render_prayer(void) {
 }
 
 void render_layer_state_user(void) {
-    switch (get_highest_layer(layer_state)) {
+    switch (get_highest_layer(layer_state | default_layer_state) % 4) {
         case 1:
             oled_write_raw_P(lower_layer, sizeof(lower_layer));
             break;

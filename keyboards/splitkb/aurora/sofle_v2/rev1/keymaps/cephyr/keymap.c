@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
     ),
     [3] = LAYOUT(
-        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, PDF(4),
+        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(4),
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     CU_ANIM, RM_NEXT, RM_HUEU, RM_SATU, RM_VALU, RM_SPDU,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     RM_TOGG, RM_PREV, RM_HUED, RM_SATD, RM_VALD, RM_SPDD,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -74,12 +74,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
     ),
     [7] = LAYOUT(
-        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, PDF(0),
+        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(8),
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     CU_ANIM, RM_NEXT, RM_HUEU, RM_SATU, RM_VALU, RM_SPDU,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     RM_TOGG, RM_PREV, RM_HUED, RM_SATD, RM_VALD, RM_SPDD,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                           _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
-    )
+    ),
+    // Gaming
+    [8] = LAYOUT(
+        KC_CAPS, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    DF(0),
+        KC_ESC,  KC_P,    KC_Q,    KC_W,    KC_E,    KC_R,                               KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_LALT,
+        KC_LSFT, KC_M,    KC_A,    KC_S,    KC_D,    KC_F,                               KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_RSFT,
+        KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   KC_MUTE,   KC_MPLY, KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_QUOT, KC_RCTL,
+                          MO(7),   KC_BSPC, KC_SPC,  KC_TAB, KC_LGUI,   KC_RGUI, KC_ENT, KC_UNDS, KC_BSPC, KC_RALT
+    ),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {

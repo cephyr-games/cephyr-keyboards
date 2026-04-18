@@ -15,6 +15,11 @@ This project uses QMK's userspace feature to define the keymap and effects. Chec
 
 The sent codes support host layouts 'German QWERTZ' and 'US QWERTY', the current mode can be toggled at any time.
 
+'SWITCH MODE' toggles between modes:
+- German QWERTZ host (4 layers)
+- US QWERTY host (4 layers)
+- Gaming (1 layer)
+
 ### Features
 - Colemak letter distribution.
 - Symbols are arranged to make common characters and groups (e.g. '->', '>=', '<=', ':='...) easiest to type.
@@ -25,6 +30,8 @@ The sent codes support host layouts 'German QWERTZ' and 'US QWERTY', the current
 - Numbers 1 and 0 are duplicate on the symbol layer for better access.
 - Host Layout can be toggled between 'German QWERTZ' and 'US QWERTY' for compatibility
   - German special characters and features are not available in 'US QWERTY' mode
+- Special layer for gaming without rebinding controls
+  - Essentially QWERTY, but shifted one key to the right, as WASD would be very uncomfortable otherwise.
 
 ## OLED Displays
 ![OLED](assets/keyboard_display.gif)

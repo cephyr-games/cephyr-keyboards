@@ -19,8 +19,14 @@ layers:
   - [{t: LCTL, type: trans}, '', '', '', '', '', {t: MUTE, type: trans}, {t: MPLY, type: trans}, 'DE ´', '', 'DE ^', '', 'DE `', {t: RCTL, type: trans}]
   - [{t: KB, type: trans}, {t: DEL, type: trans}, {t: SPC, type: trans}, {t: TAB, type: held}, {t: LGUI, type: trans}, {t: RGUI, type: trans}, {t: ENT, type: held}, {t: _, type: trans}, {t: BSPC, type: trans}, {t: RALT, type: trans}]
   KB:
-  - [BOOT, '', '', '', '', '', '', '', '', '', '', '']
+  - [BOOT, '', '', '', '', '', '', '', '', '', '', SWITCH MODE]
   - ['', '', '', '', '', '', BAD APLE, RM NEXT, RM HUEU, RM SATU, RM VALU, RM SPDU]
   - ['', '', '', '', '', '', RM TOGG, RM PREV, RM HUED, RM SATD, RM VALD, RM SPDD]
   - ['', '', '', '', '', '', {t: MUTE, type: trans}, {t: MPLY, type: trans}, '', '', '', '', '', '']
   - [{type: held}, {t: DEL, type: trans}, {t: SPC, type: trans}, {t: TAB, type: trans}, {t: LGUI, type: trans}, {t: RGUI, type: trans}, {t: ENT, type: trans}, {t: _, type: trans}, {t: BSPC, type: trans}, {t: RALT, type: trans}]
+  GAMING:
+  - [CAPS, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', SWITCH MODE]
+  - [ESC, P, Q, W, E, R, T, Y, U, I, O, LALT]
+  - [LSFT, M, A, S, D, F, G, H, J, K, L, RSFT]
+  - [LCTL, Z, X, C, V, B, MUTE, MPLY, N, M, ',', ., '''', RCTL]
+  - [KB, BSPC, SPC, TAB, LGUI, RGUI, ENT, _, BSPC, RALT]

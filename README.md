@@ -3,8 +3,6 @@ The keymap and some fancy effects for my keyboard (Aurora Sofle v2 from Splikb, 
 
 **Warning!** This is a personal project, I might make undocumented breaking changes at any time and offer no support.
 
-Feel free to *borrow* whatever you want from this though.
-
 ![Photo](aurora_sofle.jpeg)
 
 ## Install
@@ -26,8 +24,9 @@ The sent codes support host layouts 'German QWERTZ' and 'US QWERTY', the current
 - Semantically similar symbols are grouped.
 - 'Mute' and 'Media Play' buttons are rotary encoders with (cw, ccw) actions bound to (Volume Up/Down) and (Page Up/Down) respectively.
 - German Dead Keys (´, ^, `) are also availible as regular keys on the symbol layer.
+- German special characters (ä, ö, ü, ß) are easy to access.
+- Characters that are supposed to be accessed with shift (- _) (' ") (, ;) (. :) give the same results on both host layouts.
 - Layer with arrow keys can be locked for prolonged navigation without holding a key.
-- Numbers 1 and 0 are duplicate on the symbol layer for better access.
 - Host Layout can be toggled between 'German QWERTZ' and 'US QWERTY' for compatibility
   - German special characters and features are not available in 'US QWERTY' mode
 - Special layer for gaming without rebinding controls

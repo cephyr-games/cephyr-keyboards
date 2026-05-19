@@ -13,6 +13,9 @@ enum custom_keycodes {
     UD_CIRC = SAFE_RANGE + 1,
     UD_GRV  = SAFE_RANGE + 2,
     UD_ACUT = SAFE_RANGE + 3,
+    SD_QUOT = SAFE_RANGE + 4,
+    SU_COMM = SAFE_RANGE + 5,
+    SU_DOT = SAFE_RANGE + 6,
 };
 
 // Turn off the power LED
@@ -24,24 +27,24 @@ void keyboard_pre_init_user(void) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // German QWERTZ
     [0] = LAYOUT(
-        KC_CAPS, DE_1,    DE_2,    DE_3,    DE_4,    DE_5,                              DE_6,          DE_7,           DE_8,    DE_9,    DE_0,    KC_BSPC,
-        KC_ESC,  DE_Q,    DE_W,    DE_F,    DE_P,    DE_G,                              DE_J,          DE_L,           DE_U,    DE_Y,    DE_DQUO, KC_LALT,
-        KC_LSFT, DE_A,    DE_R,    DE_S,    DE_T,    DE_D,                              DE_H,          DE_N,           DE_E,    DE_I,    DE_O,    KC_RSFT,
-        KC_LCTL, DE_Z,    DE_X,    DE_C,    DE_V,    DE_B,          KC_MUTE,   KC_MPLY, DE_K,          DE_M,           DE_COMM, DE_DOT,  DE_QUOT, KC_RCTL,
-                          MO(3),   KC_DEL,  KC_SPC,  LT(2, KC_TAB), KC_LGUI,   KC_RGUI, LT(2, KC_ENT), LT(1, DE_UNDS), KC_BSPC, KC_RALT
+        KC_LALT, DE_1,    DE_2,    DE_3,    DE_4,    DE_5,                                 DE_6,    DE_7,    DE_8,    DE_9,    DE_0,    KC_RALT,
+        KC_ESC,  DE_Q,    DE_W,    DE_F,    DE_P,    DE_G,                                 DE_J,    DE_L,    DE_U,    DE_Y,    DE_MINS, MO(2),
+        KC_LSFT, DE_A,    DE_R,    DE_S,    DE_T,    DE_D,                                 DE_H,    DE_N,    DE_E,    DE_I,    DE_O,    KC_RSFT,
+        KC_LCTL, DE_Z,    DE_X,    DE_C,    DE_V,    DE_B,    KC_MUTE,   KC_MPLY, DE_K,    DE_M,    DE_COMM, DE_DOT,  SD_QUOT, KC_RCTL,
+                          MO(3),   KC_DEL,  KC_SPC,  KC_TAB,  KC_LGUI,   KC_RGUI, KC_ENT,  MO(1),   KC_BSPC, KC_CAPS
     ),
     [1] = LAYOUT(
-        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                       KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-        _______, DE_AT,   DE_EXLM, DE_AMPR, DE_PIPE, DE_TILD,                     DE_1,    DE_QUES, DE_LBRC, DE_RBRC, DE_0,    _______,
-        _______, DE_COLN, DE_PLUS, DE_MINS, DE_ASTR, DE_SLSH,                     DE_SCLN, DE_LCBR, DE_LPRN, DE_RPRN, DE_RCBR, _______,
-        _______, DE_PERC, DE_LABK, DE_RABK, DE_EQL,  DE_BSLS, _______,   _______, UD_ACUT, DE_HASH, UD_CIRC, DE_DLR,  UD_GRV,  _______,
+        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
+        _______, DE_AT,   DE_EXLM, DE_AMPR, DE_PIPE, DE_TILD,                     DE_UDIA, DE_QUES, DE_LBRC, DE_RBRC, DE_ODIA, _______,
+        _______, DE_ADIA, DE_DLR,  DE_PLUS, DE_ASTR, DE_SLSH,                     DE_PERC, DE_LCBR, DE_LPRN, DE_RPRN, DE_RCBR, _______,
+        _______, DE_SS,   DE_LABK, DE_RABK, DE_EQL,  DE_BSLS, _______,   _______, UD_ACUT, DE_HASH, UD_CIRC, UD_GRV,  KC_ESC,  _______,
                           _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
     ),
     [2] = LAYOUT(
-        KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,                      KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
+        _______, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,                      KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  _______,
         _______, XXXXXXX, KC_PGDN, KC_UP,   KC_PGUP, KC_HOME,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_LLCK, _______,
-        _______, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_FIND,                     KC_DEL,  DE_SS,   DE_ADIA, DE_UDIA, DE_ODIA, _______,
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, DE_ACUT, XXXXXXX, DE_CIRC, XXXXXXX, DE_GRV,  _______,
+        _______, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_FIND,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, DE_ACUT, XXXXXXX, DE_CIRC, DE_GRV,  XXXXXXX, _______,
                           _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
     ),
     [3] = LAYOUT(
@@ -53,23 +56,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     // US QWERTY
     [4] = LAYOUT(
-        KC_CAPS, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                              KC_6,          KC_7,           KC_8,    KC_9,    KC_0,    KC_BSPC,
-        KC_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,                              KC_J,          KC_L,           KC_U,    KC_Y,    KC_DQUO, KC_LALT,
-        KC_LSFT, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,                              KC_H,          KC_N,           KC_E,    KC_I,    KC_O,    KC_RSFT,
-        KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,          KC_MUTE,   KC_MPLY, KC_K,          KC_M,           KC_COMM, KC_DOT,  KC_QUOT, KC_RCTL,
-                          MO(7),   KC_DEL,  KC_SPC,  LT(6, KC_TAB), KC_LGUI,   KC_RGUI, LT(6, KC_ENT), LT(5, KC_UNDS), KC_BSPC, KC_RALT
+        KC_LALT, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+        KC_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,                        KC_J,    KC_L,    KC_U,    KC_Y,    KC_DQUO, MO(6),
+        KC_LSFT, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,                        KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_RSFT,
+        KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_MUTE,   KC_MPLY, KC_K,    KC_M,    SU_COMM, SU_DOT,  KC_QUOT, KC_RCTL,
+                          MO(7),   KC_DEL,  KC_SPC,  KC_TAB,  KC_LGUI,   KC_RGUI, KC_ENT,  MO(5),   KC_BSPC, KC_RALT
     ),
     [5] = LAYOUT(
-        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                       KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-        _______, KC_AT,   KC_EXLM, KC_AMPR, KC_PIPE, KC_TILD,                     KC_1,    KC_QUES, KC_LBRC, KC_RBRC, KC_0,    _______,
-        _______, KC_COLN, KC_PLUS, KC_MINS, KC_ASTR, KC_SLSH,                     KC_SCLN, KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, _______,
-        _______, KC_PERC, KC_LABK, KC_RABK, KC_EQL,  KC_BSLS, _______,   _______, UD_ACUT, KC_HASH, UD_CIRC, KC_DLR,  KC_GRV,  _______,
+        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
+        _______, KC_AT,   KC_EXLM, KC_AMPR, KC_PIPE, KC_TILD,                     XXXXXXX, KC_QUES, KC_LBRC, KC_RBRC, XXXXXXX, _______,
+        _______, _______, KC_DLR,  KC_PLUS, KC_ASTR, KC_SLSH,                     KC_PERC, KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, _______,
+        _______, _______, KC_LABK, KC_RABK, KC_EQL,  KC_BSLS, _______,   _______, XXXXXXX, KC_HASH, UD_CIRC, KC_GRV,  KC_ESC,  _______,
                           _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
     ),
     [6] = LAYOUT(
-        KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,                      KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
+        _______, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,                      KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  _______,
         _______, XXXXXXX, KC_PGDN, KC_UP,   KC_PGUP, KC_HOME,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_LLCK, _______,
-        _______, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_FIND,                     KC_DEL,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+        _______, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_FIND,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
                           _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
     ),
@@ -82,27 +85,53 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     // Gaming
     [8] = LAYOUT(
-        KC_CAPS, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    DF(0),
-        KC_ESC,  KC_P,    KC_Q,    KC_W,    KC_E,    KC_R,                               KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_LALT,
+        KC_LALT, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    DF(0),
+        KC_ESC,  KC_P,    KC_Q,    KC_W,    KC_E,    KC_R,                               KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_RALT,
         KC_LSFT, KC_M,    KC_A,    KC_S,    KC_D,    KC_F,                               KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_RSFT,
         KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   KC_MUTE,   KC_MPLY, KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_QUOT, KC_RCTL,
-                          MO(7),   KC_BSPC, KC_SPC,  KC_TAB, KC_LGUI,   KC_RGUI, KC_ENT, KC_UNDS, KC_BSPC, KC_RALT
+                          MO(7),   KC_BSPC, KC_SPC,  KC_TAB, KC_LGUI,   KC_RGUI, KC_ENT, XXXXXXX, KC_BSPC, KC_RALT
     ),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         last_activity = timer_read32();
+        bool shift = get_mods() & MOD_MASK_SHIFT;
         switch (keycode) {
-            // Workaround limitation of mod tap
-            case LT(1, DE_UNDS):
-                if (record->tap.count) {
-                    tap_code16(DE_UNDS);
-                    return false;
-                }
-                break;
             case CU_ANIM:
                 anim_state = (anim_state + 1) % 2;
+                return false;
+            // Control the send key for shifted keys
+            case SD_QUOT:
+                if (shift) {
+                    // send " on qwertz
+                    tap_code(DE_2);
+                } else {
+                    // send ' on qwertz
+                    register_mods(MOD_MASK_SHIFT);
+                    tap_code(DE_HASH);
+                    unregister_mods(MOD_MASK_SHIFT);
+                }
+                return false;
+            case SU_COMM:
+                if (shift) {
+                    // send ; on qwerty
+                    unregister_mods(MOD_MASK_SHIFT);
+                    tap_code(KC_SCLN);
+                    register_mods(MOD_MASK_SHIFT);
+                } else {
+                    // send , on qwerty
+                    tap_code(KC_COMM);
+                }
+                return false;
+            case SU_DOT:
+                if (shift) {
+                    // send : on qwerty
+                    tap_code(KC_SCLN);
+                } else {
+                    // send . on qwerty
+                    tap_code(KC_DOT);
+                }
                 return false;
             // Undead keycodes for german layout
             // SEND_STRING assumes QWERTY, thus the nonsense below
